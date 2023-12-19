@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/text_format.dart';
 
 class SabahPage extends StatefulWidget {
+  const SabahPage({super.key});
+
   @override
   State<SabahPage> createState() => _SabahPageState();
 }
@@ -118,7 +120,7 @@ class _SabahPageState extends State<SabahPage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
         backgroundColor: Colors.transparent,
@@ -135,7 +137,7 @@ class _SabahPageState extends State<SabahPage> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(
+        padding: const EdgeInsets.all(
           25,
         ),
         child: ListView.builder(
@@ -166,7 +168,7 @@ class _SabahPageState extends State<SabahPage> {
                           fontS: 25,
                           textDirection: TextDirection.rtl,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         AmiriText(
@@ -175,7 +177,7 @@ class _SabahPageState extends State<SabahPage> {
                           textDirection: TextDirection.rtl,
                           color: Colors.grey[600],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
                         CircleAvatar(
@@ -183,7 +185,7 @@ class _SabahPageState extends State<SabahPage> {
                             countNumbers[index].toString(),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
                         Row(
@@ -191,8 +193,8 @@ class _SabahPageState extends State<SabahPage> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF086788),
-                                foregroundColor: Color(0xFF9CAFB7),
+                                backgroundColor: const Color(0xFF086788),
+                                foregroundColor: const Color(0xFF9CAFB7),
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -200,9 +202,9 @@ class _SabahPageState extends State<SabahPage> {
                                     10.0,
                                   ),
                                 ),
-                                minimumSize: Size(100, 40),
+                                minimumSize: const Size(100, 40),
                               ),
-                              child: AmiriText(
+                              child: const AmiriText(
                                 text: "إعادة",
                                 fontS: 18,
                                 color: Colors.white,
@@ -216,11 +218,11 @@ class _SabahPageState extends State<SabahPage> {
                               },
                             ),
                             CircleAvatar(
-                              backgroundColor: Color(0xFF062726),
+                              backgroundColor: const Color(0xFF062726),
                               radius: 25,
                               child: Text(
                                 counters[index].toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
@@ -229,8 +231,8 @@ class _SabahPageState extends State<SabahPage> {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF062726),
-                                foregroundColor: Color(0xFF66A182),
+                                backgroundColor: const Color(0xFF062726),
+                                foregroundColor: const Color(0xFF66A182),
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -238,9 +240,9 @@ class _SabahPageState extends State<SabahPage> {
                                     10.0,
                                   ),
                                 ),
-                                minimumSize: Size(100, 40),
+                                minimumSize: const Size(100, 40),
                               ),
-                              child: AmiriText(
+                              child: const AmiriText(
                                 text: "تسبيح",
                                 fontS: 18,
                                 color: Colors.white,

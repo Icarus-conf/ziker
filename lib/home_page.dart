@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  padding: EdgeInsets.all(
+                  padding: const EdgeInsets.all(
                     25,
                   ),
                   child: Column(
@@ -46,13 +46,13 @@ class _HomePageState extends State<HomePage> {
                         ),
                         textDirection: TextDirection.rtl,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text(
+                          const Text(
                             "{",
                             style: TextStyle(
                               fontSize: 25,
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             textDirection: TextDirection.rtl,
                           ),
-                          Text(
+                          const Text(
                             "}",
                             style: TextStyle(
                               fontSize: 25,
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Row(
@@ -91,15 +91,15 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => NightPage(),
+                            builder: (context) => const NightPage(),
                           ),
                         );
                       },
-                      color: Color(0xFF062726),
+                      color: const Color(0xFF062726),
                       width: 150,
                       borderRad: BorderRadius.circular(10),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     MyButton(
@@ -108,11 +108,11 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SabahPage(),
+                            builder: (context) => const SabahPage(),
                           ),
                         );
                       },
-                      color: Color(0xFF062726),
+                      color: const Color(0xFF062726),
                       width: 150,
                       borderRad: BorderRadius.circular(10),
                     ),

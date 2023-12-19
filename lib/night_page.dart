@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/text_format.dart';
 
 class NightPage extends StatefulWidget {
+  const NightPage({super.key});
+
   @override
   State<NightPage> createState() => _NightPageState();
 }
@@ -115,7 +117,7 @@ class _NightPageState extends State<NightPage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
         backgroundColor: Colors.transparent,
@@ -132,7 +134,7 @@ class _NightPageState extends State<NightPage> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(
+        padding: const EdgeInsets.all(
           25,
         ),
         child: ListView.builder(
@@ -162,7 +164,7 @@ class _NightPageState extends State<NightPage> {
                           fontS: 25,
                           textDirection: TextDirection.rtl,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         AmiriText(
@@ -171,7 +173,7 @@ class _NightPageState extends State<NightPage> {
                           textDirection: TextDirection.rtl,
                           color: Colors.grey[600],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
                         CircleAvatar(
@@ -179,7 +181,7 @@ class _NightPageState extends State<NightPage> {
                             countNumbers[index].toString(),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
                         Row(
@@ -187,8 +189,8 @@ class _NightPageState extends State<NightPage> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF086788),
-                                foregroundColor: Color(0xFF9CAFB7),
+                                backgroundColor: const Color(0xFF086788),
+                                foregroundColor: const Color(0xFF9CAFB7),
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -196,9 +198,9 @@ class _NightPageState extends State<NightPage> {
                                     10.0,
                                   ),
                                 ),
-                                minimumSize: Size(100, 40),
+                                minimumSize: const Size(100, 40),
                               ),
-                              child: AmiriText(
+                              child: const AmiriText(
                                 text: "إعادة",
                                 fontS: 18,
                                 color: Colors.white,
@@ -212,11 +214,11 @@ class _NightPageState extends State<NightPage> {
                               },
                             ),
                             CircleAvatar(
-                              backgroundColor: Color(0xFF062726),
+                              backgroundColor: const Color(0xFF062726),
                               radius: 25,
                               child: Text(
                                 counters[index].toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
@@ -225,8 +227,8 @@ class _NightPageState extends State<NightPage> {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF062726),
-                                foregroundColor: Color(0xFF66A182),
+                                backgroundColor: const Color(0xFF062726),
+                                foregroundColor: const Color(0xFF66A182),
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -234,9 +236,9 @@ class _NightPageState extends State<NightPage> {
                                     10.0,
                                   ),
                                 ),
-                                minimumSize: Size(100, 40),
+                                minimumSize: const Size(100, 40),
                               ),
-                              child: AmiriText(
+                              child: const AmiriText(
                                 text: "تسبيح",
                                 fontS: 18,
                                 color: Colors.white,
