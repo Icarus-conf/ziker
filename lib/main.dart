@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ziker',
-      // theme: ThemeData.dark(),
       home: const HomePage(),
     );
   }
