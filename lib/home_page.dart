@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/button.dart';
-import 'package:ziker/sabah_page.dart';
-import 'package:ziker/test.dart';
+import 'package:ziker/morning_page.dart';
+import 'package:ziker/night_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => TestPage(),
+                            builder: (context) => NightPage(),
                           ),
                         );
                       },

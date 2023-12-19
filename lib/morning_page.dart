@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/text_format.dart';
 
-class TestPage extends StatefulWidget {
+class SabahPage extends StatefulWidget {
   @override
-  State<TestPage> createState() => _TestPageState();
+  State<SabahPage> createState() => _SabahPageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _SabahPageState extends State<SabahPage> {
   // Create a list of texts
   final List<String> texts = [
     "اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ.",
@@ -43,7 +43,42 @@ class _TestPageState extends State<TestPage> {
     "أسْتَغْفِرُ اللهَ وَأتُوبُ إلَيْهِ",
   ];
 
-  final List<int> subTexts = [
+  final List<String> subTexts = [
+    "من قالها حين يصبح أجير من الجن حتى يمسى ومن قالها حين يمسى أجير من الجن حتى يصبح.",
+    "من قالها حين يصبح وحين يمسى كفته من كل شىء (الإخلاص والمعوذتين).",
+    "",
+    "",
+    "",
+    "من قالها موقنا بها حين يمسى ومات من ليلته دخل الجنة وكذلك حين يصبح.",
+    "من قالها حين يصبح وحين يمسى كان حقا على الله أن يرضيه يوم القيامة.",
+    "من قالها أعتقه الله من النار.",
+    "من قالها حين يصبح أدى شكر يومه.",
+    "من قالها كفاه الله ما أهمه من أمر الدنيا والأخرة.",
+    "لم يضره من الله شيء.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "من صلى على حين يصبح وحين يمسى ادركته شفاعتى يوم القيامة.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "ذكر طيب.",
+    "كانت له عدل عشر رقاب، وكتبت له مئة حسنة، ومحيت عنه مئة سيئة، وكانت له حرزا من الشيطان.",
+    "كانت له عدل عشر رقاب، وكتبت له مئة حسنة، ومحيت عنه مئة سيئة، وكانت له حرزا من الشيطان.",
+    "حُطَّتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ. لَمْ يَأْتِ أَحَدٌ يَوْمَ الْقِيَامَةِ بِأَفْضَلَ مِمَّا جَاءَ بِهِ إِلَّا أَحَدٌ قَالَ مِثْلَ مَا قَالَ أَوْ زَادَ عَلَيْهِ.",
+    "مائة حسنة، ومُحيت عنه مائة سيئة، وكانت له حرزاً من الشيطان حتى يمسى.",
+  ];
+
+  final List<int> countNumbers = [
     1,
     3,
     3,
@@ -77,7 +112,7 @@ class _TestPageState extends State<TestPage> {
     100,
   ];
 
-  int counter = 0;
+  List<int> counters = [];
 
   @override
   Widget build(BuildContext context) {
@@ -105,10 +140,9 @@ class _TestPageState extends State<TestPage> {
           25,
         ),
         child: ListView.builder(
-          // Set the length of the list
           itemCount: texts.length,
-          // Return a Card widget for each item
           itemBuilder: (context, index) {
+            counters.add(0);
             return Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
@@ -116,31 +150,36 @@ class _TestPageState extends State<TestPage> {
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-                  //set border radius more than 50% of height and width to make circle
                 ),
-                // Use a Column to arrange the text and the buttons vertically
                 child: Container(
                   padding: const EdgeInsets.all(25.0),
                   child: Column(
                     children: [
-                      // Display the text inside the card
                       AmiriText(
                         text: texts[index],
                         fontS: 25,
                         textDirection: TextDirection.rtl,
                       ),
                       SizedBox(
+                        height: 8,
+                      ),
+                      AmiriText(
+                        text: subTexts[index],
+                        fontS: 14,
+                        textDirection: TextDirection.rtl,
+                        color: Colors.grey[600],
+                      ),
+                      SizedBox(
                         height: 25,
                       ),
                       CircleAvatar(
                         child: Text(
-                          subTexts[index].toString(),
+                          countNumbers[index].toString(),
                         ),
                       ),
                       SizedBox(
                         height: 25,
                       ),
-                      // Use a Row to display the two buttons horizontally
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
@@ -164,8 +203,8 @@ class _TestPageState extends State<TestPage> {
                             ),
                             onPressed: () {
                               setState(() {
-                                if (counter > 0) {
-                                  counter--;
+                                if (counters[index] > 0) {
+                                  counters[index]--;
                                 }
                               });
                             },
@@ -174,7 +213,7 @@ class _TestPageState extends State<TestPage> {
                             backgroundColor: Color(0xFF062726),
                             radius: 25,
                             child: Text(
-                              counter.toString(),
+                              counters[index].toString(),
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -202,7 +241,7 @@ class _TestPageState extends State<TestPage> {
                             ),
                             onPressed: () {
                               setState(() {
-                                counter++;
+                                counters[index]++;
                               });
                             },
                           ),
