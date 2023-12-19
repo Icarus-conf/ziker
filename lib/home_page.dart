@@ -33,15 +33,12 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(
-                    25,
-                  ),
                   child: Column(
                     children: [
                       Text(
                         "أذكار الصباح والمساء",
                         style: GoogleFonts.amiri(
-                          fontSize: 40,
+                          fontSize: 25,
                           color: Colors.white,
                         ),
                         textDirection: TextDirection.rtl,
