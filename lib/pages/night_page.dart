@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ziker/models/morning_model.dart';
-import 'package:ziker/text_format.dart';
+import 'package:ziker/models/night.dart';
+import 'package:ziker/components/text_format.dart';
 
-class SabahPage extends StatefulWidget {
-  const SabahPage({super.key});
+class NightPage extends StatefulWidget {
+  const NightPage({super.key});
 
   @override
-  State<SabahPage> createState() => _SabahPageState();
+  State<NightPage> createState() => _NightPageState();
 }
 
-class _SabahPageState extends State<SabahPage> {
+class _NightPageState extends State<NightPage> {
   // Create a list of texts
 
   List<int> counters = [];
@@ -26,7 +26,7 @@ class _SabahPageState extends State<SabahPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          "أذكار الصباح",
+          "أذكار المساء",
           textDirection: TextDirection.rtl,
           style: GoogleFonts.arefRuqaa(
             fontSize: 24,
@@ -41,10 +41,9 @@ class _SabahPageState extends State<SabahPage> {
           25,
         ),
         child: ListView.builder(
-          itemCount: morningTexts.length,
+          itemCount: nightTexts.length,
           itemBuilder: (context, index) {
             counters.add(0);
-
             return Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
@@ -59,12 +58,12 @@ class _SabahPageState extends State<SabahPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Padding(
+                  child: Container(
                     padding: const EdgeInsets.all(25.0),
                     child: Column(
                       children: [
                         AmiriText(
-                          text: morningTexts[index],
+                          text: nightTexts[index],
                           fontS: 25,
                           textDirection: TextDirection.rtl,
                         ),
@@ -72,7 +71,7 @@ class _SabahPageState extends State<SabahPage> {
                           height: 8,
                         ),
                         AmiriText(
-                          text: morningSubTexts[index],
+                          text: nightTexts[index],
                           fontS: 14,
                           textDirection: TextDirection.rtl,
                           color: Colors.grey[600],
@@ -82,7 +81,7 @@ class _SabahPageState extends State<SabahPage> {
                         ),
                         CircleAvatar(
                           child: Text(
-                            morningCountNumbers[index].toString(),
+                            nightCountNumbers[index].toString(),
                           ),
                         ),
                         const SizedBox(

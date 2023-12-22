@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ziker/button.dart';
-import 'package:ziker/morning_page.dart';
-import 'package:ziker/night_page.dart';
+import 'package:ziker/components/button.dart';
+import 'package:ziker/pages/morning_page.dart';
+import 'package:ziker/pages/night_page.dart';
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {

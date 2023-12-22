@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ziker/home_page.dart';
+import 'package:ziker/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
