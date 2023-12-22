@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/components/button.dart';
+import 'package:ziker/components/colors.dart';
 import 'package:ziker/pages/morning_page.dart';
 import 'package:ziker/pages/night_page.dart';
-import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.bottomLeft,
               colors: [
                 Color(0xFF89B0AE),
-                Color(0xFF36413E),
+                Color(0xFF013a63),
               ],
             ),
           ),
@@ -40,7 +40,8 @@ class _HomePageState extends State<HomePage> {
                         "أذكار الصباح والمساء",
                         style: GoogleFonts.amiri(
                           fontSize: 25,
-                          color: Colors.white,
+                          color: primaryColor,
+                          fontWeight: FontWeight.w700,
                         ),
                         textDirection: TextDirection.rtl,
                       ),
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                             "{",
                             style: TextStyle(
                               fontSize: 25,
-                              color: Colors.white,
+                              color: primaryColor,
                             ),
                           ),
                           Text(
@@ -69,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                             "}",
                             style: TextStyle(
                               fontSize: 25,
-                              color: Colors.white,
+                              color: primaryColor,
                             ),
                           ),
                         ],
@@ -77,7 +78,11 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                Lottie.asset('assets/pray_logo1.json'),
+                Image.asset(
+                  "assets/dua-hands.png",
+                  color: const Color(0xFFe3f2fd),
+                  width: 150,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -91,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       },
-                      color: const Color(0xFF062726),
+                      color: primaryColor,
                       width: 150,
                       borderRad: BorderRadius.circular(10),
                     ),
@@ -108,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       },
-                      color: const Color(0xFF062726),
+                      color: const Color(0xFF013a63),
                       width: 150,
                       borderRad: BorderRadius.circular(10),
                     ),

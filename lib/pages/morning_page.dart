@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ziker/components/colors.dart';
 import 'package:ziker/models/morning_model.dart';
 import 'package:ziker/components/text_format.dart';
 
@@ -18,10 +19,10 @@ class _SabahPageState extends State<SabahPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: const Color(0xFFe9edf0),
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Color(0xFF012a4a),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -32,13 +33,15 @@ class _SabahPageState extends State<SabahPage> {
             fontSize: 24,
             fontWeight: FontWeight.w700,
             color: Colors.black,
+            letterSpacing: 1.5,
           ),
         ),
         centerTitle: true,
       ),
       body: Container(
-        padding: const EdgeInsets.all(
-          25,
+        padding: const EdgeInsets.only(
+          left: 25,
+          right: 25,
         ),
         child: ListView.builder(
           itemCount: morningTexts.length,
@@ -56,40 +59,35 @@ class _SabahPageState extends State<SabahPage> {
                   });
                 },
                 child: Card(
+                  color: secondaryColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(
+                      20,
+                    ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(25.0),
+                    padding: const EdgeInsets.all(
+                      25.0,
+                    ),
                     child: Column(
                       children: [
                         AmiriText(
                           text: morningTexts[index],
                           fontS: 25,
                           textDirection: TextDirection.rtl,
-                        ),
-                        const SizedBox(
-                          height: 8,
+                          color: Colors.white,
                         ),
                         AmiriText(
                           text: morningSubTexts[index],
                           fontS: 14,
                           textDirection: TextDirection.rtl,
-                          color: Colors.grey[600],
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        CircleAvatar(
-                          child: Text(
-                            morningCountNumbers[index].toString(),
-                          ),
+                          color: Colors.grey[200],
                         ),
                         const SizedBox(
                           height: 25,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -118,7 +116,7 @@ class _SabahPageState extends State<SabahPage> {
                               },
                             ),
                             CircleAvatar(
-                              backgroundColor: const Color(0xFF062726),
+                              backgroundColor: const Color(0xFF012a4a),
                               radius: 25,
                               child: Text(
                                 counters[index].toString(),
@@ -131,8 +129,8 @@ class _SabahPageState extends State<SabahPage> {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF062726),
-                                foregroundColor: const Color(0xFF66A182),
+                                backgroundColor: const Color(0xFF012a4a),
+                                foregroundColor: const Color(0xFF01497c),
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -152,6 +150,28 @@ class _SabahPageState extends State<SabahPage> {
                                   counters[index]++;
                                 });
                               },
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              child: Text(
+                                morningCountNumbers[index].toString(),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            const AmiriText(
+                              text: "عدد المرات",
+                              fontS: 14,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white,
                             ),
                           ],
                         ),
