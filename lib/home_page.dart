@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/button.dart';
 import 'package:ziker/morning_page.dart';
 import 'package:ziker/night_page.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,8 +23,8 @@ class _HomePageState extends State<HomePage> {
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Color(0xFF062726),
-                Color(0xFF2C514C),
+                Color(0xFF89B0AE),
+                Color(0xFF36413E),
               ],
             ),
           ),
@@ -76,9 +77,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 25,
-                ),
+                Lottie.asset('assets/pray_logo1.json'),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
