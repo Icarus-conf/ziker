@@ -1,11 +1,11 @@
 class Ziker {
-  final String? texts;
-  final String? subTexts;
-  final int? numberOfCount;
+  final String? text;
+  final String? subText;
+  int? numberOfCount;
 
   Ziker({
-    required this.texts,
-    required this.subTexts,
+    required this.text,
+    required this.subText,
     required this.numberOfCount,
   });
 }

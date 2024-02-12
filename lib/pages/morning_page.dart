@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ziker/components/colors.dart';
-import 'package:ziker/models/morning_model.dart';
+import 'package:ziker/data/morning_prays_data.dart';
+
 import 'package:ziker/components/text_format.dart';
 
 class SabahPage extends StatefulWidget {
@@ -19,10 +20,10 @@ class _SabahPageState extends State<SabahPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFe9edf0),
+      backgroundColor: morningPageBgColor,
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Color(0xFF012a4a),
+          color: Colors.white,
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -32,7 +33,7 @@ class _SabahPageState extends State<SabahPage> {
           style: GoogleFonts.arefRuqaa(
             fontSize: 24,
             fontWeight: FontWeight.w700,
-            color: Colors.black,
+            color: Colors.white,
             letterSpacing: 1.5,
           ),
         ),
@@ -44,10 +45,10 @@ class _SabahPageState extends State<SabahPage> {
           right: 25,
         ),
         child: ListView.builder(
-          itemCount: morningTexts.length,
+          itemCount: morningPrays.length,
           itemBuilder: (context, index) {
             counters.add(0);
-
+            var morningData = morningPrays[index];
             return Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
@@ -59,7 +60,7 @@ class _SabahPageState extends State<SabahPage> {
                   });
                 },
                 child: Card(
-                  color: secondaryColor,
+                  color: morningPageCardColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       20,
@@ -72,13 +73,16 @@ class _SabahPageState extends State<SabahPage> {
                     child: Column(
                       children: [
                         AmiriText(
-                          text: morningTexts[index],
+                          text: morningData.text!,
                           fontS: 25,
                           textDirection: TextDirection.rtl,
                           color: Colors.white,
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         AmiriText(
-                          text: morningSubTexts[index],
+                          text: morningData.subText!,
                           fontS: 14,
                           textDirection: TextDirection.rtl,
                           color: Colors.grey[200],
@@ -91,8 +95,8 @@ class _SabahPageState extends State<SabahPage> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF086788),
-                                foregroundColor: const Color(0xFF9CAFB7),
+                                backgroundColor: resetBtnColor,
+                                foregroundColor: resetForegroundColor,
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -109,8 +113,10 @@ class _SabahPageState extends State<SabahPage> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  if (counters[index] > 0) {
-                                    counters[index]--;
+                                  if (counters[index] > 0 ||
+                                      counters[index] ==
+                                          morningData.numberOfCount!) {
+                                    counters[index] = 0;
                                   }
                                 });
                               },
@@ -129,8 +135,8 @@ class _SabahPageState extends State<SabahPage> {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF012a4a),
-                                foregroundColor: const Color(0xFF01497c),
+                                backgroundColor: tasbehBtnColor,
+                                foregroundColor: tasbehForegroundColor,
                                 shadowColor: Colors.grey[400],
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -147,7 +153,10 @@ class _SabahPageState extends State<SabahPage> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  counters[index]++;
+                                  if (counters[index] <
+                                      morningData.numberOfCount!) {
+                                    counters[index]++;
+                                  }
                                 });
                               },
                             ),
@@ -160,8 +169,9 @@ class _SabahPageState extends State<SabahPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CircleAvatar(
+                              backgroundColor: Colors.white,
                               child: Text(
-                                morningCountNumbers[index].toString(),
+                                morningData.numberOfCount.toString(),
                               ),
                             ),
                             const SizedBox(

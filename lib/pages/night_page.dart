@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ziker/models/night.dart';
+import 'package:ziker/components/colors.dart';
 import 'package:ziker/components/text_format.dart';
+import 'package:ziker/data/night_prays_data.dart';
 
 class NightPage extends StatefulWidget {
   const NightPage({super.key});
@@ -18,7 +19,7 @@ class _NightPageState extends State<NightPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1d2d44),
+      backgroundColor: const Color(0xFF252525),
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -42,9 +43,10 @@ class _NightPageState extends State<NightPage> {
           25,
         ),
         child: ListView.builder(
-          itemCount: nightTexts.length,
+          itemCount: nightPrays.length,
           itemBuilder: (context, index) {
             counters.add(0);
+            var nightData = nightPrays[index];
             return Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
@@ -65,13 +67,16 @@ class _NightPageState extends State<NightPage> {
                     child: Column(
                       children: [
                         AmiriText(
-                          text: nightTexts[index],
+                          text: nightData.text!,
                           fontS: 25,
                           textDirection: TextDirection.rtl,
                           color: Colors.white,
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         AmiriText(
-                          text: nightSubTexts[index],
+                          text: nightData.subText!,
                           fontS: 14,
                           textDirection: TextDirection.rtl,
                           color: Colors.grey[200],
@@ -84,8 +89,8 @@ class _NightPageState extends State<NightPage> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF086788),
-                                foregroundColor: const Color(0xFF9CAFB7),
+                                backgroundColor: resetBtnColor,
+                                foregroundColor: resetForegroundColor,
                                 shadowColor: Colors.black,
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -102,8 +107,10 @@ class _NightPageState extends State<NightPage> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  if (counters[index] > 0) {
-                                    counters[index]--;
+                                  if (counters[index] > 0 ||
+                                      counters[index] ==
+                                          nightData.numberOfCount!) {
+                                    counters[index] = 0;
                                   }
                                 });
                               },
@@ -122,8 +129,8 @@ class _NightPageState extends State<NightPage> {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF012a4a),
-                                foregroundColor: const Color(0xFF01497c),
+                                backgroundColor: tasbehBtnColor,
+                                foregroundColor: tasbehForegroundColor,
                                 shadowColor: Colors.black,
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -140,7 +147,10 @@ class _NightPageState extends State<NightPage> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  counters[index]++;
+                                  if (counters[index] <
+                                      nightData.numberOfCount!) {
+                                    counters[index]++;
+                                  }
                                 });
                               },
                             ),
@@ -155,7 +165,7 @@ class _NightPageState extends State<NightPage> {
                             CircleAvatar(
                               backgroundColor: Colors.black,
                               child: Text(
-                                nightCountNumbers[index].toString(),
+                                nightData.numberOfCount.toString(),
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ),
