@@ -49,16 +49,20 @@ class _SabahPageState extends State<SabahPage> {
           itemBuilder: (context, index) {
             counters.add(0);
             var morningData = morningPrays[index];
+            counterIncreament() {
+              setState(() {
+                if (counters[index] < morningData.numberOfCount!) {
+                  counters[index]++;
+                }
+              });
+            }
+
             return Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
               ),
               child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    counters[index]++;
-                  });
-                },
+                onTap: counterIncreament,
                 child: Card(
                   color: morningPageCardColor,
                   shape: RoundedRectangleBorder(
@@ -146,19 +150,12 @@ class _SabahPageState extends State<SabahPage> {
                                 ),
                                 minimumSize: const Size(100, 40),
                               ),
+                              onPressed: counterIncreament,
                               child: const AmiriText(
                                 text: "تسبيح",
                                 fontS: 18,
                                 color: Colors.white,
                               ),
-                              onPressed: () {
-                                setState(() {
-                                  if (counters[index] <
-                                      morningData.numberOfCount!) {
-                                    counters[index]++;
-                                  }
-                                });
-                              },
                             ),
                           ],
                         ),

@@ -47,16 +47,20 @@ class _NightPageState extends State<NightPage> {
           itemBuilder: (context, index) {
             counters.add(0);
             var nightData = nightPrays[index];
+            counterIncreament() {
+              setState(() {
+                if (counters[index] < nightData.numberOfCount!) {
+                  counters[index]++;
+                }
+              });
+            }
+
             return Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
               ),
               child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    counters[index]++;
-                  });
-                },
+                onTap: counterIncreament,
                 child: Card(
                   color: const Color(0xFF3e5c76),
                   shape: RoundedRectangleBorder(
@@ -140,19 +144,12 @@ class _NightPageState extends State<NightPage> {
                                 ),
                                 minimumSize: const Size(100, 40),
                               ),
+                              onPressed: counterIncreament,
                               child: const AmiriText(
                                 text: "تسبيح",
                                 fontS: 18,
                                 color: Colors.white,
                               ),
-                              onPressed: () {
-                                setState(() {
-                                  if (counters[index] <
-                                      nightData.numberOfCount!) {
-                                    counters[index]++;
-                                  }
-                                });
-                              },
                             ),
                           ],
                         ),
