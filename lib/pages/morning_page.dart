@@ -83,7 +83,7 @@ class _SabahPageState extends State<SabahPage> {
                           color: Colors.white,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         AmiriText(
                           text: morningData.subText!,

@@ -64,7 +64,7 @@ class _NightPageState extends State<NightPage> {
                 child: Card(
                   color: const Color(0xFF3e5c76),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Container(
                     padding: const EdgeInsets.all(25.0),
@@ -77,7 +77,7 @@ class _NightPageState extends State<NightPage> {
                           color: Colors.white,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         AmiriText(
                           text: nightData.subText!,
